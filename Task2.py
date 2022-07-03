@@ -57,7 +57,6 @@ def start_window(window):
     i_no_first.grid(row=1, column=1, columnspan=2, sticky=N + S + W + E, padx=0, pady=5, ipadx=5, ipady=5)
     window_center(window)
     root.geometry('312x200')
-    root.tk.call('wm', 'iconphoto', root._w, PhotoImage(file='tic-tac-toe.png'))
     window.mainloop()
 
 
@@ -772,12 +771,23 @@ def seventh_selection():
                 check_three_diagonal_left(row, col, x)
 
 
-def occupied_cells(field):
+def choice_of_possible_move():
     global weight_charts
+    global list_of_movies
+    global max_weight
+    global next_move
+    global person_play
+    list_of_movies = []
     for row in range(10):
         for col in range(10):
-            if field[row][col]['text'] == 'X' or field[row][col]['text'] == 'O':
-                weight_charts[row][col] = -1
+            if weight_charts[row][col] == max_weight:
+                list_of_movies.append([row, col])
+    random_index = random.randint(0, len(list_of_movies) - 1)
+    next_move = list_of_movies[random_index]
+    if person_play:
+        field[next_move[0]][next_move[1]]['text'] = 'O'
+    else:
+        field[next_move[0]][next_move[1]]['text'] = 'X'
 
 
 def play_AI():
@@ -786,7 +796,7 @@ def play_AI():
     global max_weight
     global list_of_movies
     global next_move
-    occupied_cells(field)
+    choice_of_possible_move()
     first_selection()
     second_selection()
     third_selection()
@@ -795,11 +805,10 @@ def play_AI():
     sixth_selection()
     seventh_selection()
     heaviest_weight()
-    choice_of_possible_move(field)
+    choice_of_possible_move()
     check_win(field)
 
 
-root.tk.call('wm', 'iconphoto', root._w, PhotoImage(file='tic-tac-toe.png'))
 tkinter.Menu(root, bg='#ccc')
 root.configure(bg='gray')
 start_window(root)
