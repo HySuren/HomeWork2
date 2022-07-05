@@ -796,7 +796,6 @@ def play_AI():
     global max_weight
     global list_of_movies
     global next_move
-    choice_of_possible_move()
     first_selection()
     second_selection()
     third_selection()
