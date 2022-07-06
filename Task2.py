@@ -339,7 +339,7 @@ def play_AI():
                             try:
                                 if (weight_charts[row + i][col + k] == -1) and (row + i >= 0) and (col + k >= 0) and (
                                         field[row + i][col + k]['text'] == x):
-                                    weight_charts[row][col] = 2
+                                    weight_charts[row][col] = -2
                             except IndexError:
                                 continue
 
@@ -473,7 +473,7 @@ def play_AI():
             for i in [-3, -2, -1, 1, 2, 3]:
                 try:
                     if field[row - i][col + i]['text'] == x:
-                        kol += 1
+                        kol -= 1
                 except:
                     continue
             if kol == 3:
