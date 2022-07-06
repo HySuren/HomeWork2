@@ -557,7 +557,7 @@ def play_AI():
                 if weight_charts[row][col] == 5:
                     if (check_five_horizontal(row, col, x)) or (check_five_vertical(row, col, x)) or (
                             check_five_diagonal_right(row, col, x)) or (check_five_diagonal_left(row, col, x)):
-                        weight_charts[row][col] = -7
+                        weight_charts[row][col] = -70
 
     def sixth_selection(price):
         global weight_charts
