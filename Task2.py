@@ -413,7 +413,7 @@ def play_AI():
                 if weight_charts[row][col] == 2:
                     if (check_three_horizontal(row, col, x)) or (check_three_vertical(row, col, x)) or (
                             check_three_diagonal_right(row, col, x)) or (check_three_diagonal_left(row, col, x)):
-                        weight_charts[row][col] = 3
+                        weight_charts[row][col] = 1
 
     def fourth_selection():
         global weight_charts
@@ -485,7 +485,7 @@ def play_AI():
                 if weight_charts[row][col] == 3:
                     if (check_four_horizontal(row, col, x)) or (check_four_vertical(row, col, x)) or (
                             check_four_diagonal_right(row, col, x)) or (check_four_diagonal_left(row, col, x)):
-                        weight_charts[row][col] = 5
+                        weight_charts[row][col] = -1
 
     def fifth_selection():
         global weight_charts
@@ -503,7 +503,7 @@ def play_AI():
             for i in [-4, -3, -2, -1, 1, 2, 3, 4]:
                 try:
                     if field[row][col + i]['text'] == x:
-                        kol += 1
+                        kol -= 1
                 except:
                     continue
             if kol == 4:
@@ -517,7 +517,7 @@ def play_AI():
             for i in [-4, -3, -2, -1, 1, 2, 3, 4]:
                 try:
                     if field[row + i][col]['text'] == x:
-                        kol += 1
+                        kol -= 1
                 except:
                     continue
             if kol == 4:
@@ -531,7 +531,7 @@ def play_AI():
             for i in [-4, -3, -2, -1, 1, 2, 3, 4]:
                 try:
                     if field[row + i][col + i]['text'] == x:
-                        kol += 1
+                        kol -= 1
                 except:
                     continue
             if kol == 4:
@@ -545,7 +545,7 @@ def play_AI():
             for i in [-4, -3, -2, -1, 1, 2, 3, 4]:
                 try:
                     if field[row - i][col + i]['text'] == x:
-                        kol += 1
+                        kol -= 1
                 except:
                     continue
             if kol == 4:
@@ -557,7 +557,7 @@ def play_AI():
                 if weight_charts[row][col] == 5:
                     if (check_five_horizontal(row, col, x)) or (check_five_vertical(row, col, x)) or (
                             check_five_diagonal_right(row, col, x)) or (check_five_diagonal_left(row, col, x)):
-                        weight_charts[row][col] = 7
+                        weight_charts[row][col] = -7
 
     def sixth_selection(price):
         global weight_charts
@@ -574,7 +574,7 @@ def play_AI():
             for i in [-2, -1, 1, 2]:
                 try:
                     if field[row][col + i]['text'] == x:
-                        kol += 1
+                        kol -= 1
                 except:
                     continue
             if kol == 2:
@@ -591,7 +591,7 @@ def play_AI():
             for i in [-2, -1, 1, 2]:
                 try:
                     if field[row + i][col]['text'] == x:
-                        kol += 1
+                        kol -= 1
                 except:
                     continue
             if kol == 2:
@@ -608,7 +608,7 @@ def play_AI():
             for i in [-2, -1, 1, 2]:
                 try:
                     if field[row + i][col + i]['text'] == x:
-                        kol += 1
+                        kol -= 1
                 except:
                     continue
             if kol == 2:
@@ -625,7 +625,7 @@ def play_AI():
             for i in [-2, -1, 1, 2]:
                 try:
                     if field[row - i][col + i]['text'] == x:
-                        kol += 1
+                        kol -= 1
                 except:
                     continue
             if kol == 2:
@@ -659,7 +659,7 @@ def play_AI():
             for i in [-3, -2, -1, 1, 2, 3]:
                 try:
                     if field[row][col + i]['text'] == x:
-                        kol += 1
+                        kol -= 1
                 except:
                     continue
             if kol == 3:
@@ -676,7 +676,7 @@ def play_AI():
             for i in [-3, -2, -1, 1, 2, 3]:
                 try:
                     if field[row + i][col]['text'] == x:
-                        kol += 1
+                        kol -= 1
                 except:
                     continue
             if kol == 3:
@@ -693,7 +693,7 @@ def play_AI():
             for i in [-3, -2, -1, 1, 2, 3]:
                 try:
                     if field[row + i][col + i]['text'] == x:
-                        kol += 1
+                        kol -= 1
                 except:
                     continue
             if kol == 3:
